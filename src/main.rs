@@ -1,20 +1,31 @@
-use ratatui::{DefaultTerminal, Frame};
+mod app;
+mod config;
+mod converter;
+mod downloader;
+mod models;
+mod queue;
+mod ui;
 
-fn main() -> color_eyre::Result<()> {
+use app::App;
+use color_eyre::Result;
+
+#[tokio::main]
+async fn main() -> Result<()> {
+    // Install color-eyre for better error reporting
     color_eyre::install()?;
-    ratatui::run(app)?;
-    Ok(())
-}
 
-fn app(terminal: &mut DefaultTerminal) -> std::io::Result<()> {
-    loop {
-        terminal.draw(render)?;
-        if crossterm::event::read()?.is_key_press() {
-            break Ok(());
-        }
-    }
-}
+    // Load configuration
+    let config = config::load_config()?;
 
-fn render(frame: &mut Frame) {
-    frame.render_widget("Hello, World!", frame.area());
+    // Initialize terminal
+    let mut terminal = ratatui::init();
+
+    // Create and run app
+    let mut app = App::new(config);
+    let result = app.run(&mut terminal).await;
+
+    // Restore terminal
+    ratatui::restore();
+
+    result
 }
