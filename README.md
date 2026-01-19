@@ -2,16 +2,6 @@
 
 A terminal-based video downloader and converter built with Rust and Ratatui. Download videos from YouTube and Twitch, then automatically convert them to a format compatible with DaVinci Resolve on Linux.
 
-## Features
-
-- 🎥 Download videos from YouTube and Twitch using yt-dlp
-- 🔄 Automatic conversion to DaVinci Resolve compatible format (MP4 with PCM audio)
-- ⚡ Multiple concurrent downloads (configurable, default: 3)
-- 📊 Real-time progress tracking for downloads and conversions
-- 🎨 Beautiful terminal UI with Ratatui
-- ⚙️ Configurable output directory and quality settings
-- 🚀 Async processing with Tokio for optimal performance
-
 ## Prerequisites
 
 The following tools must be installed on your system:
