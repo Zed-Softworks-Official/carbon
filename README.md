@@ -63,28 +63,28 @@ carbon
 
 ### Keyboard Controls
 
-**Main View:**
-- `a` - Add a new URL to the download queue
+**Always Available:**
+- Type URL directly into the input box (no need to press 'a')
+- `Enter` - Submit URL and start download
+- `Ctrl+V` - Paste URL from clipboard
+- `Esc` - Clear input text
+
+**When input is empty (and jobs exist):**
 - `↑/↓` - Navigate through the job list
 - `d` - Delete selected job (only non-active jobs)
-- `c` - Clear completed jobs
 - `q` - Quit application
-
-**Input Mode (when adding URL):**
-- `Ctrl+V` - Paste URL from clipboard
-- `Enter` - Submit URL and start download
-- `Esc` - Cancel input and return to main view
-- Type normally to enter URL manually
 
 ### How It Works
 
-1. Press `a` to open the URL input
-2. Enter a YouTube or Twitch URL (or press `Ctrl+V` to paste from clipboard)
-3. Press `Enter` to add to queue
-4. The application will:
-   - Download the video using yt-dlp
+1. On launch, you'll see a clean welcome view with a centered input box
+2. Enter a YouTube or Twitch URL directly (or press `Ctrl+V` to paste from clipboard)
+3. Press `Enter` to add to queue - the view switches to show your jobs
+4. You can continue adding URLs from the input box at the bottom
+5. The application will:
+   - Download video using yt-dlp
    - Automatically convert it to DaVinci Resolve compatible format
    - Save it to your configured output directory
+6. Completed jobs stay visible in the list with a ✓ status
 
 The converted videos will have PCM audio (16-bit, 48kHz) which is compatible with DaVinci Resolve on Linux, where AAC audio codec support is limited.
 
